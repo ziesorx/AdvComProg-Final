@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      NBA Player
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-button size="small" shape="round" color="danger" (click)="chart()">Compare Player</ion-button>
+<ion-button size="small" shape="round" color="danger" (click)="powerRanking()">Sort by Power Ranking</ion-button>
+<ion-button size="small" shape="round" color="danger" (click)="highToLowPts()">Sort by Points</ion-button>
+
+<ion-content *ngIf = 'data$ | async as data'>
+      <div *ngFor = "let list of data.players">
+        <ion-card type="button" (click)="toggleDetails()">
+            <img src={{list.img}} class="center">
+            <ion-card-header>
+              <ion-card-title>{{list.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Team : {{list.team}}
+            <div *ngIf="showDetails">
+              Average Point per Game : {{list.avgPointsPerGame}}
+              <br>
+              Career Time : {{list.playedTime}} seasons
+              <br>
+              Awards : {{list.Awards}}
+            </div>
+            </ion-card-content>
+        </ion-card>
+      </div>
+</ion-content>

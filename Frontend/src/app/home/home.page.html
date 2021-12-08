@@ -1,0 +1,32 @@
+<ion-content>
+  <div id="container">
+    <strong>NBA Stats <ion-icon name="basketball-outline"></ion-icon></strong>
+    <br><br>
+  <ion-item>
+    <ion-label position="floating">
+      <p>Enter your name</p>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-label>
+  </ion-item>
+  <h6>Your name : {{name}}</h6>
+  
+  <ion-item>
+    <ion-label position="floating">
+      <p>Enter your favourite NBA Player</p>
+      <ion-input type="text" [(ngModel)]="nbaPlayer"></ion-input>
+    </ion-label>
+  </ion-item>
+  <h6>Your favourite NBA Player : <br>{{nbaPlayer}}</h6>
+
+  <ion-item>
+    <ion-label position="floating">
+      <p>Enter your favourite NBA Team</p>
+      <ion-input type="text" [(ngModel)]="nbaTeam"></ion-input>
+    </ion-label>
+  </ion-item>
+  <h6>Your favourite NBA Team : <br>{{nbaTeam}}</h6>
+  </div>
+
+  <ion-button color="primary" (click)="showPlayer()">Next</ion-button>
+  
+</ion-content>
