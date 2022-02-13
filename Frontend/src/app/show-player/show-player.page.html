@@ -3,14 +3,16 @@
     <ion-title>
       NBA Player
     </ion-title>
+    <ion-button color="warning" size="small" (click)="backStart()">
+      <ion-label>Logout</ion-label>
+  </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-button size="small" shape="round" color="danger" (click)="chart()">Compare Player</ion-button>
-<ion-button size="small" shape="round" color="danger" (click)="powerRanking()">Sort by Power Ranking</ion-button>
-<ion-button size="small" shape="round" color="danger" (click)="highToLowPts()">Sort by Points</ion-button>
-
 <ion-content *ngIf = 'data$ | async as data'>
+  <ion-button size="small" expand="block" shape="round" color="danger" (click)="chart()">Compare Player</ion-button>
+  <ion-button size="small" expand="block" shape="round" color="danger" (click)="powerRanking()">Sort by Power Ranking</ion-button>
+  <ion-button size="small" expand="block" shape="round" color="danger" (click)="highToLowPts()">Sort by Name</ion-button>
       <div *ngFor = "let list of data.players">
         <ion-card type="button" (click)="toggleDetails()">
             <img src={{list.img}} class="center">

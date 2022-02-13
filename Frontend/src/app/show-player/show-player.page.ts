@@ -11,7 +11,7 @@ import { Data } from '../../model/data.model';
 })
 export class ShowPlayerPage implements OnInit {
   data$: Observable<Data>;
-  url: string = 'http://2352-35-237-122-64.ngrok.io';
+  url: string = 'http://9f2d-35-239-50-167.ngrok.io';
   public showDetails: boolean = false;
 
   constructor(public http: HttpClient, private router: Router) { 
@@ -35,5 +35,9 @@ export class ShowPlayerPage implements OnInit {
   
   toggleDetails() {
       this.showDetails = !this.showDetails;
+  }
+
+  backStart(){
+      this.router.navigate(['/home'])
   }
 }

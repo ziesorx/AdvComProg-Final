@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Compare</ion-title>
+    <ion-button size="small" (click)="backHome()">
+        <ion-label>Back</ion-label>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+ <ion-item *ngIf = 'data$ | async as data'>
+    <ion-select [(ngModel)]="selectedPlayer1" placeholder="Select Player 1 &emsp;&emsp;&emsp;&emsp;&emsp;" slot="end" interface="popover">
+      <ion-select-option value="{{list.name}}" *ngFor="let list of data.players">{{list.name}}</ion-select-option>
+    </ion-select>
+ </ion-item>
+ <ion-item *ngIf = 'data$ | async as data'>
+    <ion-select [(ngModel)]="selectedPlayer2" placeholder="Select Player 2 &emsp;&emsp;&emsp;&emsp;&emsp;" slot="end" interface="popover">
+      <ion-select-option value="{{list.name}}" *ngFor="let list of data.players">{{list.name}}</ion-select-option>
+    </ion-select>
+</ion-item>
 
+<ion-item>
+  <ion-button slot="end" size="small">
+    <ion-label shape="round" size="small" (click)="compare()">Compare Player</ion-label>
+  </ion-button>
+</ion-item>
+
+<div class="ion-padding">
+<ion-card>
+    <canvas baseChart 
+      [datasets]='chartData'
+      [labels]='chartLabel'
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [type]="'bar'"
+      height="300">
+    </canvas>
+</ion-card>
+</div>
 </ion-content>
